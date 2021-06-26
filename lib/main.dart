@@ -82,25 +82,41 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text('マムシのディレクトリ'),
       ),
-      body: Column(
-        children: [
-          RaisedButton(
-          child: Text('タブバーページ'),
-          onPressed: () async{
-                  await Navigator.pushNamed(context, '/tabber');
+      body: Center(
+        child: Column(
+
+          // ここで中央による
+          // 上によるのか真ん中によるのかcenterによるのか
+
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+              child: Text('タブバーページ'),
+              onPressed: () async{
+                      await Navigator.pushNamed(context, '/tabber');
     }),
-          RaisedButton(
-            child: Text('画像ページ'),
-            onPressed: () async{
-                await Navigator.pushNamed(context, '/image');
-            },
-          ),
-          RaisedButton(
-              child: Text('フォームテキストバインド'),
-              onPressed:() async{
-                await Navigator.pushNamed(context, '/forms');
-              }),
-        ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                child: Text('画像ページ'),
+                onPressed: () async{
+                    await Navigator.pushNamed(context, '/image');
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                  child: Text('フォームテキストバインド'),
+                  onPressed:() async{
+                    await Navigator.pushNamed(context, '/forms');
+                  }),
+            ),
+          ],
+        ),
       ),
  // This trailing comma makes auto-formatting nicer for build methods.
     );
