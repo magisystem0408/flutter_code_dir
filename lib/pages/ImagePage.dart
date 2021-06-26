@@ -17,7 +17,7 @@ class ImagePage extends StatelessWidget {
                 child: Text('戻る'),
                 onPressed: () {
                   Navigator.pop(context);
-                },
+                  },
               ),
             ]),
           )
