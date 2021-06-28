@@ -94,5 +94,30 @@
       loadMainDartJs();
     }
   </script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+
+  <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDJdKQlujlKTD5lFEBUt8dv7zeWS8mJtic",
+    authDomain: "flutter-study-a9246.firebaseapp.com",
+    projectId: "flutter-study-a9246",
+    storageBucket: "flutter-study-a9246.appspot.com",
+    messagingSenderId: "744653783276",
+    appId: "1:744653783276:web:49484af11d8b1848ce65c9",
+    measurementId: "G-QXJ6GBN8ET"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
 </body>
 </html>
