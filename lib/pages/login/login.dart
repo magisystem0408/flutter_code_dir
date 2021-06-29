@@ -114,7 +114,13 @@ class _LoginState extends State<Login> {
                           infoText = auth_error.login_error_msg(e.code);
                         });
                       }
-                    }))
+                    })),
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: RaisedButton(
+                  child: Text('戻る'),
+                  onPressed: ()=>Navigator.pop(context)),
+            )
           ],
         ),
       ),

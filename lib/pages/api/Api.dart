@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
+
 // httpレスポンスをJSON変換する
 import 'dart:convert';
-
 
 class Api extends StatefulWidget {
   const Api({key}) : super(key: key);
@@ -13,38 +13,34 @@ class Api extends StatefulWidget {
 }
 
 class _ApiState extends State<Api> {
-
   Map data;
   List userData;
 
-  Future getData() async{
-
-    final params ={
-      'page':'2'
-    };
-    final url = Uri.https('reqres.in','api/users',params);
+  Future getData() async {
+    final params = {'page': '2'};
+    final url = Uri.https('reqres.in', 'api/users', params);
     final response = await http.get(url);
 
-    if(response.statusCode==200){
+    if (response.statusCode == 200) {
       print("APIデータを取得しました。");
-        // jsonをmapオブジェクトに格納
-        data = json.decode(response.body);
-        setState(() {
-          userData =data["data"];
-          print(userData);
-          // print('データ取得完了');
-        });
-    }else{
+      // jsonをmapオブジェクトに格納
+      data = json.decode(response.body);
+      setState(() {
+        userData = data["data"];
+        print(userData);
+        // print('データ取得完了');
+      });
+    } else {
       throw Exception('データが取得できませんでした。');
     }
   }
 
   @override
+  void initState() {
+    super.initState();
+    getData();
+  }
 
-    void initState(){
-      super.initState();
-          getData();
-    }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -53,13 +49,13 @@ class _ApiState extends State<Api> {
 
       // スクロール可能な可変リストを作る
       body: ListView.builder(
-
         // 三項演算子
-          itemCount: userData ==null ? 0 : userData.length,
+        itemCount: userData == null ? 0 : userData.length,
 
-          // 表示したい内容をindexに応じて
-          itemBuilder: (BuildContext context, int index){
-            return Card(
+        // 表示したい内容をindexに応じて
+        itemBuilder: (BuildContext context, int index) {
+          return Column(children: [
+            Card(
               child: Row(
                 children: <Widget>[
                   Padding(
@@ -68,13 +64,19 @@ class _ApiState extends State<Api> {
                       backgroundImage: NetworkImage(userData[index]["avatar"]),
                     ),
                   ),
-                  Text("${userData[index]["first_name"]} ${userData[index]["last_name"]}")
+                  Text(
+                      "${userData[index]["first_name"]} ${userData[index]["last_name"]}")
                 ],
               ),
-            );
-          }),
-
-
+            ),
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: RaisedButton(
+                  child: Text('戻る'), onPressed: () => Navigator.pop(context)),
+            )
+          ]);
+        },
+      ),
     );
   }
 }

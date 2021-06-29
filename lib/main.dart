@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_development/pages/BottomSheets.dart';
+import 'package:flutter_development/pages/Dialog.dart';
 import 'package:flutter_development/pages/Form.dart';
+import 'package:flutter_development/pages/HandSort.dart';
 import 'package:flutter_development/pages/SliderPage.dart';
 import 'package:flutter_development/pages/TabBar_TabBarView.dart';
 import 'package:flutter_development/pages/Toggle.dart';
 import 'package:flutter_development/pages/api/Api.dart';
 import 'package:flutter_development/pages/login/login.dart';
-import 'ProgressBar.dart';
+import 'pages/ProgressBar.dart';
 import 'pages/ImagePage.dart';
 
 
@@ -37,6 +40,9 @@ class MyApp extends StatelessWidget {
         '/slider':(context) => SliderPage(),
         '/api':(context) => Api(),
         '/progressbar':(context) =>ProgressBar(),
+        '/dialog':(context) => DialogPage(),
+        '/bottomsheets':(context)=> ButtonSheats(),
+        '/handsort':(context)=> HandSort(),
       },
     );
   }
@@ -44,7 +50,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
 
   final String title;
 
@@ -146,6 +151,31 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text("プログレスバー"),
                   onPressed: () async{
                 await Navigator.pushNamed(context, '/progressbar');
+              }),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                  child:Text("ダイアログ"),
+                  onPressed: () async{
+                await Navigator.pushNamed(context, '/dialog');
+              }),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                  child: Text("ボトムシート"),
+                  onPressed: ()async{
+                await Navigator.pushNamed(context, '/bottomsheets');
+              }),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                  child: Text('並べかえ'),
+                  onPressed: () async{
+                await Navigator.pushNamed(context, '/handsort');
               }),
             )
           ],
