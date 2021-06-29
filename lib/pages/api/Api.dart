@@ -70,7 +70,6 @@ class _ApiState extends State<Api> {
                   ),
                   Text("${userData[index]["first_name"]} ${userData[index]["last_name"]}")
                 ],
-
               ),
             );
           }),

@@ -37,6 +37,10 @@ class _RegistrationState extends State<Registration> {
               ),
             ),
             Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Divider(),
+            ),
+            Padding(
               padding: const EdgeInsets.fromLTRB(25.0, 0, 25.0, 0),
               child: TextFormField(
                 decoration: InputDecoration(labelText: "メールアドレス"),

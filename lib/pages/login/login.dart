@@ -23,6 +23,24 @@ class _LoginState extends State<Login> {
   //エラーメッセージを日本語化するためのクラスを実体化
   final auth_error = Authentication_error();
 
+
+
+//  プログレスバーの表示
+  void showProgressDialog() {
+    showGeneralDialog(
+        context: context,
+        barrierDismissible: false,
+        transitionDuration: Duration(milliseconds: 300),
+        barrierColor: Colors.black.withOpacity(0.5),
+        pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +48,10 @@ class _LoginState extends State<Login> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
+            Text('ログイン画面',
+              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+            ),
+
             Padding(
               padding: const EdgeInsets.fromLTRB(25.0, 0, 25.0, 0),
               child: TextFormField(
@@ -77,9 +99,13 @@ class _LoginState extends State<Login> {
                     ),
                     onPressed: () async {
                       try {
+
                         final FirebaseAuth auth =FirebaseAuth.instance;
                         final UserCredential result =
                             await auth.signInWithEmailAndPassword(email: login_Email, password: login_Password);
+
+                          showProgressDialog();
+                          await Future.delayed(Duration(seconds: 1));
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>
                             Home(user_id: result.user.uid)));
                       } catch (e) {

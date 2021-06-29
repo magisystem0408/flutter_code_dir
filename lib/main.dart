@@ -5,6 +5,7 @@ import 'package:flutter_development/pages/TabBar_TabBarView.dart';
 import 'package:flutter_development/pages/Toggle.dart';
 import 'package:flutter_development/pages/api/Api.dart';
 import 'package:flutter_development/pages/login/login.dart';
+import 'ProgressBar.dart';
 import 'pages/ImagePage.dart';
 
 
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         '/toggle':(context) => Toggle(),
         '/slider':(context) => SliderPage(),
         '/api':(context) => Api(),
+        '/progressbar':(context) =>ProgressBar(),
       },
     );
   }
@@ -136,6 +138,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed:() async{
                   await Navigator.pushNamed(context, '/api');
               } ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                  child: Text("プログレスバー"),
+                  onPressed: () async{
+                await Navigator.pushNamed(context, '/progressbar');
+              }),
             )
           ],
         ),
