@@ -3,6 +3,7 @@ import 'package:flutter_development/pages/Form.dart';
 import 'package:flutter_development/pages/SliderPage.dart';
 import 'package:flutter_development/pages/TabBar_TabBarView.dart';
 import 'package:flutter_development/pages/Toggle.dart';
+import 'package:flutter_development/pages/api/Api.dart';
 import 'package:flutter_development/pages/login/login.dart';
 import 'pages/ImagePage.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -32,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/userform':(context) => Login(),
         '/toggle':(context) => Toggle(),
         '/slider':(context) => SliderPage(),
+        '/api':(context) => Api(),
       },
     );
   }
@@ -125,6 +128,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     final result =await Navigator.pushNamed(context, '/slider');
                     print(result);
               }),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                  child: Text('API'),
+                  onPressed:() async{
+                  await Navigator.pushNamed(context, '/api');
+              } ),
             )
           ],
         ),
