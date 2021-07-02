@@ -69,14 +69,15 @@ class _ApiState extends State<Api> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: RaisedButton(
-                  child: Text('戻る'), onPressed: () => Navigator.pop(context)),
-            )
+            // Padding(
+            //   padding: const EdgeInsets.all(30.0),
+            //   child: RaisedButton(
+            //       child: Text('戻る'), onPressed: () => Navigator.pop(context)),
+            // )
           ]);
         },
       ),
+
     );
   }
 }

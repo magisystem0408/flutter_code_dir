@@ -101,7 +101,7 @@ class _LoginState extends State<Login> {
                       try {
 
                         final FirebaseAuth auth =FirebaseAuth.instance;
-                        final UserCredential result =
+                        final  result =
                             await auth.signInWithEmailAndPassword(email: login_Email, password: login_Password);
 
                           showProgressDialog();

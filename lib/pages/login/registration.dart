@@ -90,7 +90,7 @@ class _RegistrationState extends State<Registration> {
                     if(pswd_OK){
                       try{
                         final FirebaseAuth auth =FirebaseAuth.instance;
-                        final UserCredential result =
+                        final result =
                             await auth.createUserWithEmailAndPassword(email: newEmail, password: newPassword);
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>
                         Home(user_id:result.user.uid)));

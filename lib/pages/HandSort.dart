@@ -1,14 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HandSort extends StatefulWidget {
-  const HandSort({key,this.title}) : super(key: key);
-
-  final String title;
-  @override
-  _HandSortState createState() => _HandSortState();
-}
-
 //モデルクラス定義
 class Model{
   final String title;
@@ -20,6 +12,14 @@ class Model{
     @required this.subTitle,
     @required this.key,
   });
+}
+
+class HandSort extends StatefulWidget {
+  HandSort({key,this.title}) : super(key: key);
+
+  final String title;
+  @override
+  _HandSortState createState() => _HandSortState();
 }
 
 class _HandSortState extends State<HandSort> {
